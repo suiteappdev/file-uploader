@@ -6,8 +6,8 @@ var BUCKET = 'jafid';
 var BASE_AMAZON = "http://s3.amazonaws.com/"+BUCKET+"/";
 
 aws.config.update({
-    accessKeyId: "AKIAJYUGIBK2XEQQ5PGA",
-    secretAccessKey: "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"
+    accessKeyId: process.env.AWS_ACCESS_KEY, //delete me "AKIAJYUGIBK2XEQQ5PGA"
+    secretAccessKey: process.env.AWS_SECRET_KEY//delete me "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"
 });
 
 aws.config.update({region: 'us-west-2'});
