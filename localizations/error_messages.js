@@ -10,7 +10,6 @@ module.exports = {
 	"INVALID_TOKEN" : "Invalid Token",
 	"USER_NOT_FOUND" : "User not found",
 	"OLD_PASSWORD_NOT_MATCH" : "Old password not match",
-	"NOT_TOKEN_PROVIDED" : "Not token provided",
-	"NOT_FILE_PROVIDED" : "Not file provided "
+	"NOT_TOKEN_PROVIDED" : "Not token provided"
 
 }

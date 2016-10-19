@@ -11,7 +11,15 @@ module.exports = function(app, apiRoutes){
 
     function upload(req, res){
     	if(!req.file){
-    		return res.status(500).json(apiResponder.error("NOT_FILE_PROVIDED"))
+    		return res.status(500).json(apiResponder.error("REQUIRED_FIELDS_NO_RECEIVED"))
+    	}
+
+    	if(!req.body.user_id){
+    		return res.status(500).json(apiResponder.error("REQUIRED_FIELDS_NO_RECEIVED"))
+    	}
+
+    	if(!req.body.type){
+    		return res.status(500).json(apiResponder.error("REQUIRED_FIELDS_NO_RECEIVED"));
     	}
 
     	fs.readFile(req.file.path, function(err, buffer){
@@ -23,6 +31,7 @@ module.exports = function(app, apiRoutes){
 	    		var data = {};
 	    		data.user_id = req.body.user_id;
 	    		data.url = uploaded.url;
+	    		data.filetype = req.body.type;
 
 	    		var model = new uploadModel(data);
 
@@ -39,7 +48,7 @@ module.exports = function(app, apiRoutes){
     	});
     }
 
-    function getFiles(){
+    function getFiles(req, res){
     	uploadModel.find({user_id:req.params.user_id, filetype:req.params.file_type}).exec(function(err, files){
     		if(err){
     			return console.log(err);
