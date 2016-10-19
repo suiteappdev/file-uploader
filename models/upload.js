@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var _Schema = new mongoose.Schema({
 	user_id : {type:String},
 	url : { type : String},
-	filetype : {type :String}
+	filetype : {type :String, lowercase: true}
 });
 
 _Schema.plugin(timestamps);

@@ -49,7 +49,7 @@ module.exports = function(app, apiRoutes){
     }
 
     function getFiles(req, res){
-    	uploadModel.find({user_id:req.params.user_id, filetype:req.params.file_type}).exec(function(err, files){
+    	uploadModel.find({user_id:req.params.user_id, filetype:req.params.file_type.toLowerCase()}).exec(function(err, files){
     		if(err){
     			return console.log(err);
     		}
